@@ -735,20 +735,16 @@ namespace Launcher
 
                 if (Properties.Settings.Default.autologin == true)
                 {
-                    /*NotifyIcon ni = new NotifyIcon();
+                    NotifyIcon ni = new NotifyIcon();
 
                     ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/101.ico")).Stream);
                     ni.Visible = true;
-                    ni.ShowBalloonTip(20000, "Программа запуска", "Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши", ToolTipIcon.Info);
-                    this.Hide();
-                    ni.DoubleClick +=
-                        delegate(object sender, EventArgs args)
-                        {
-                            Show();
-                            ni.Visible = false;
-                        };
-                    */
-                    string accountName = Properties.Settings.Default.username;
+                    ni.BalloonTipTitle = ("WoW-Step launcher");
+                    ni.BalloonTipText = ("Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши");
+                    ni.ShowBalloonTip(20000);
+                    Hide();
+                    
+string accountName = Properties.Settings.Default.username;
                     Thread.Sleep(600);
 
                     new Thread(() =>
