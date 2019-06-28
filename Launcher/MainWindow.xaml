@@ -18,7 +18,7 @@
             <Canvas Background="#FF311102" Height="800" Width="1920" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-510,0,-510,-135">
                 <Image Source="img/sil.jpeg" Stretch="UniformToFill" StretchDirection="UpOnly"/>
                 <Border Height="80" BorderBrush="#33FFFFFF" BorderThickness="0,0,0,1">
-                    <Image Source="img/sil.jpg" Stretch="UniformToFill" StretchDirection="UpOnly" Margin="0,0,0,0">
+                    <Image Source="img/sil.jpeg" Stretch="UniformToFill" StretchDirection="UpOnly" Margin="0,0,0,0">
                         <Image.Effect>
                             <BlurEffect Radius="25"/>
                         </Image.Effect>
@@ -37,10 +37,14 @@
                 <Rectangle Grid.Row="2" StrokeThickness="0" Margin="1">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF0174DF" Offset="1"/>
-                            <GradientStop Color="#00311102" Offset="0.267"/>
-                            <GradientStop Color="#990174DF"/>
-                            <GradientStop Color="#00311102" Offset="0.388"/>
+                            <!-- низ заливки-->
+                            <!-- центр верх заливки -->
+                            <!-- верх заливки -->
+                            <!-- центр низ заливки-->
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="#99005070" Offset="0.267"/>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#99005070" Offset="0.388"/>
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
@@ -105,7 +109,7 @@
                         <RowDefinition Height="19*"/>
                         <RowDefinition Height="19*"/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="labelprogress" Content="" Margin="17,0,11,1" Foreground="#F0000000" Background="#00836359" Padding="0" Height="19" VerticalAlignment="Bottom"/>
+                    <Label x:Name="labelprogress" Content="" Margin="17,0,11,1" Foreground="Goldenrod" Background="#00836359" Padding="0" Height="19" VerticalAlignment="Bottom"/>
                     <Grid x:Name="totalProgressGrid" Grid.Row="1">
                         <ProgressBar x:Name="progress" Margin="16,0,76,0" Style="{DynamicResource ProgressBar}" ToolTip="Общий прогресс обновления" Height="19" VerticalAlignment="Bottom">
                             <ProgressBar.Foreground>
@@ -117,8 +121,8 @@
                                 </LinearGradientBrush>
                             </ProgressBar.Foreground>
                         </ProgressBar>
-                        <Label Content="{Binding Value, ElementName=progress, StringFormat=\{0:0\}}"  Margin="0,0,35,0" Foreground="#F0000000" FontSize="18" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Общий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
-                        <Label Content="%"  Foreground="#F0000000" FontSize="18" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Общий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="{Binding Value, ElementName=progress, StringFormat=\{0:0\}}"  Margin="0,0,35,0" Foreground="Goldenrod" FontSize="18" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Общий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="%"  Foreground="Goldenrod" FontSize="18" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Общий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
                     </Grid>
                     <Grid x:Name="currentProgressGrid" Grid.Row="2">
                         <ProgressBar x:Name="progress_file" Margin="16,0,76,0" Style="{DynamicResource ProgressBar}" ToolTip="Текущий прогресс обновления" Height="19" VerticalAlignment="Bottom">
@@ -131,17 +135,18 @@
                                 </LinearGradientBrush>
                             </ProgressBar.Foreground>
                         </ProgressBar>
-                        <Label Content="{Binding Value, ElementName=progress_file, StringFormat=\{0:0\}}" Margin="0,0,35,0" Foreground="#F0000000" FontSize="18" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Текущий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
-                        <Label Content="%"  Foreground="#F0000000" FontSize="18" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Текущий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="{Binding Value, ElementName=progress_file, StringFormat=\{0:0\}}" Margin="0,0,35,0" Foreground="Goldenrod" FontSize="18" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Текущий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="%"  Foreground="Goldenrod" FontSize="18" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Текущий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
 
                     </Grid>
                 </Grid>
-                <Label x:Name="labelmsg" Grid.Row="2" Content="Инициализация..." Margin="10,0,0,82" Foreground="#006400" HorizontalAlignment="Left" Width="296" Height="14" VerticalAlignment="Bottom" Padding="0"/>
+                <Label x:Name="labelmsg" Grid.Row="2" Content="Идёт проверка обновлений..." Margin="10,0,0,60" Foreground="Goldenrod" FontSize="12" HorizontalAlignment="Left" Width="984" Height="36" VerticalAlignment="Bottom" Padding="0"/>
                 <Button x:Name="btn_play" Grid.Row="2" Margin="0,15,30,18" Click="btn_play_Click" IsTabStop="False" Content="ИГРАТЬ" Style="{DynamicResource PlayButton}" FontFamily="Verdana" FontSize="26.667" Cursor="{Binding Cursor, ElementName=version}" BorderThickness="0" HorizontalAlignment="Right" Width="180"/>
                 <Button x:Name="link_main" Content="ГЛАВНАЯ" HorizontalAlignment="Left" Margin="40,2,0,2" Style="{DynamicResource LinkButton}" Width="115" FontSize="16" Click="link_main_Click"/>
                 <Button x:Name="link_cabinet" Content="ЛИЧНЫЙ&#xA;КАБИНЕТ" HorizontalAlignment="Left" Margin="155,2,0,2" Style="{DynamicResource LinkButton}" Width="115" FontSize="16" Click="link_cabinet_Click"/>
                 <Button x:Name="link_registration" Content="РЕГИСТРАЦИЯ" HorizontalAlignment="Left" Margin="270,2,0,2" Style="{DynamicResource LinkButton}" Width="150" FontSize="16" Click="link_registration_Click"/>
                 <Button x:Name="link_social" Content="ФОРУМ" HorizontalAlignment="Left" Margin="420,2,0,2" Style="{DynamicResource LinkButton}" Width="130" FontSize="16" Click="link_social_Click"/>
+               
             </Grid>
 
 

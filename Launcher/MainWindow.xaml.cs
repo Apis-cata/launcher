@@ -410,7 +410,7 @@ namespace Launcher
                     btn_play.IsEnabled = false;
                     TaskbarPlay.IsEnabled = false;
                     progress.Value = 0;
-                    labelmsg.Content = "Инициализация...";
+                    labelmsg.Content = "Идёт проверка обновлений...";
                     _count = 0;
                     startDownloadBackgroundWorker.RunWorkerAsync();
                 }
@@ -620,7 +620,7 @@ namespace Launcher
                 TaskbarProgress.ProgressState = System.Windows.Shell.TaskbarItemProgressState.Normal;
                 TaskbarPlay.IsEnabled = false;
                 btn_play.IsEnabled = false;
-                labelmsg.Content = "Идет обновление...";
+                labelmsg.Content = "Идет обновление файлов игры. Если вам кажется, что оно зависло просто подождите, такое бывает при загрузке больших обновлений, на пример от 2х гб. и выше.";
             }
             else
             {
@@ -735,7 +735,7 @@ namespace Launcher
 
                 if (Properties.Settings.Default.autologin == true)
                 {
-                    NotifyIcon ni = new NotifyIcon();
+                    /*NotifyIcon ni = new NotifyIcon();
 
                     ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/101.ico")).Stream);
                     ni.Visible = true;
@@ -747,7 +747,7 @@ namespace Launcher
                             Show();
                             ni.Visible = false;
                         };
-
+                    */
                     string accountName = Properties.Settings.Default.username;
                     Thread.Sleep(600);
 
@@ -856,22 +856,22 @@ namespace Launcher
                 
         private void link_main_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru");
+            Process.Start("https://wowstep.ru");
         }
 
         private void link_cabinet_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/ucp");
+            Process.Start("https://wowstep.ru/ucp");
         }
 
         private void link_registration_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/register");
+            Process.Start("https://wowstep.ru/register");
         }
 
         private void link_social_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/forum");
+            Process.Start("https://wowstep.ru/forum");
         }
     }
 }
