@@ -149,6 +149,7 @@
                 <Button x:Name="link_cabinet" Content="ЛИЧНЫЙ&#xA;КАБИНЕТ" HorizontalAlignment="Left" Margin="155,2,0,2" Style="{DynamicResource LinkButton}" Width="115" FontSize="16" Click="link_cabinet_Click"/>
                 <Button x:Name="link_registration" Content="РЕГИСТРАЦИЯ" HorizontalAlignment="Left" Margin="270,2,0,2" Style="{DynamicResource LinkButton}" Width="150" FontSize="16" Click="link_registration_Click"/>
                 <Button x:Name="link_social" Content="ФОРУМ" HorizontalAlignment="Left" Margin="420,2,0,2" Style="{DynamicResource LinkButton}" Width="130" FontSize="16" Click="link_social_Click"/>
+               
             </Grid>
 
 

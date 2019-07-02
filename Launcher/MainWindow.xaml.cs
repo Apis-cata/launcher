@@ -734,32 +734,17 @@ namespace Launcher
                 var process = Process.Start(string.Format(@"{0}\{1}", _gPath, Properties.Settings.Default.clientExe));
 
                 if (Properties.Settings.Default.autologin == true)
-                {/* сворачивание в трей tray */
+                {
                     NotifyIcon ni = new NotifyIcon();
 
-                    ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/982697c72bc7841a_ywu_icon.ico")).Stream);
+                    ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/101.ico")).Stream);
                     ni.Visible = true;
-                    ni.ShowBalloonTip(20000, "Программа запуска", "Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши", ToolTipIcon.Info);
-                    ni.Text = "WoW-Step Launcher";
-
-
-
-                    this.Hide();
-                    ni.DoubleClick +=
-                        delegate(object sender, EventArgs args)
-                        {
-                            Show();
-                            ni.Visible = false;
-                        };
-                    //срабатывание на одиночный клик
-                    ni.Click +=
-                        delegate (object sender, EventArgs args)
-                        {
-                            Show();
-                            ni.Visible = false;
-                        };
-
-                    string accountName = Properties.Settings.Default.username;
+                    ni.BalloonTipTitle = ("WoW-Step launcher");
+                    ni.BalloonTipText = ("Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши");
+                    ni.ShowBalloonTip(20000);
+                    Hide();
+                    
+string accountName = Properties.Settings.Default.username;
                     Thread.Sleep(600);
 
                     new Thread(() =>
@@ -851,7 +836,7 @@ namespace Launcher
 
         private void news_box_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btn_min_Click(object sender, RoutedEventArgs e)
