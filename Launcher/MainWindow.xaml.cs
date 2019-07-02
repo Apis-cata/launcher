@@ -410,7 +410,7 @@ namespace Launcher
                     btn_play.IsEnabled = false;
                     TaskbarPlay.IsEnabled = false;
                     progress.Value = 0;
-                    labelmsg.Content = "Инициализация...";
+                    labelmsg.Content = "Идёт проверка обновлений...";
                     _count = 0;
                     startDownloadBackgroundWorker.RunWorkerAsync();
                 }
@@ -620,7 +620,7 @@ namespace Launcher
                 TaskbarProgress.ProgressState = System.Windows.Shell.TaskbarItemProgressState.Normal;
                 TaskbarPlay.IsEnabled = false;
                 btn_play.IsEnabled = false;
-                labelmsg.Content = "Идет обновление...";
+                labelmsg.Content = "Идет обновление файлов игры. Если вам кажется, что оно зависло просто подождите, такое бывает при загрузке больших обновлений, на пример от 2х гб. и выше.";
             }
             else
             {
@@ -734,15 +734,26 @@ namespace Launcher
                 var process = Process.Start(string.Format(@"{0}\{1}", _gPath, Properties.Settings.Default.clientExe));
 
                 if (Properties.Settings.Default.autologin == true)
-                {
+                {/* сворачивание в трей tray */
                     NotifyIcon ni = new NotifyIcon();
 
-                    ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/101.ico")).Stream);
+                    ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/982697c72bc7841a_ywu_icon.ico")).Stream);
                     ni.Visible = true;
                     ni.ShowBalloonTip(20000, "Программа запуска", "Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши", ToolTipIcon.Info);
+                    ni.Text = "WoW-Step Launcher";
+
+
+
                     this.Hide();
                     ni.DoubleClick +=
                         delegate(object sender, EventArgs args)
+                        {
+                            Show();
+                            ni.Visible = false;
+                        };
+                    //срабатывание на одиночный клик
+                    ni.Click +=
+                        delegate (object sender, EventArgs args)
                         {
                             Show();
                             ni.Visible = false;
@@ -840,7 +851,7 @@ namespace Launcher
 
         private void news_box_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btn_min_Click(object sender, RoutedEventArgs e)
@@ -856,22 +867,22 @@ namespace Launcher
                 
         private void link_main_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru");
+            Process.Start("https://wowstep.ru");
         }
 
         private void link_cabinet_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/ucp");
+            Process.Start("https://wowstep.ru/ucp");
         }
 
         private void link_registration_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/register");
+            Process.Start("https://wowstep.ru/register");
         }
 
         private void link_social_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://wowstep.ru/forum");
+            Process.Start("https://wowstep.ru/forum");
         }
     }
 }

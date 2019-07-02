@@ -16,7 +16,7 @@ namespace Launcher
             _instanceMutex = new Mutex(true, "F37E84CB-D76A-49B1-A1AC-80870903087B", out createdNew);
             if (!createdNew)
             {
-                MessageBox.Show("Копия лаунчера уже запущена на данном компьютере", "Попытка повторного запуска", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Лаунчер уже запущен на данном компьютере. Проверьте системный трей.", "Попытка повторного запуска", MessageBoxButton.OK, MessageBoxImage.Warning);
                 _instanceMutex = null;
                 Current.Shutdown();
                 return;
