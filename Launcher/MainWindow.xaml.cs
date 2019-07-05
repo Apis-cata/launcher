@@ -34,6 +34,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Effects;
+using Hardcodet.Wpf.TaskbarNotification;
 using Application = System.Windows.Application;
 using Cursor = System.Windows.Input.Cursor;
 using Cursors = System.Windows.Input.Cursors;
@@ -709,6 +710,7 @@ namespace Launcher
         private void btn_play_Click(object sender, RoutedEventArgs e)
         {
             Play();
+            this.Hide();
         }
 
         private void btn_close_Click(object sender, RoutedEventArgs e)
@@ -735,7 +737,7 @@ namespace Launcher
 
                 if (Properties.Settings.Default.autologin == true)
                 {
-                    NotifyIcon ni = new NotifyIcon();
+                   /* NotifyIcon ni = new NotifyIcon();
 
                     ni.Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/img/101.ico")).Stream);
                     ni.Visible = true;
@@ -743,7 +745,7 @@ namespace Launcher
                     ni.BalloonTipText = ("Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши");
                     ni.ShowBalloonTip(20000);
                     Hide();
-                    
+                    */
 string accountName = Properties.Settings.Default.username;
                     Thread.Sleep(600);
 
@@ -836,9 +838,12 @@ string accountName = Properties.Settings.Default.username;
 
         private void news_box_Loaded(object sender, RoutedEventArgs e)
         {
-
+          /*  Form1 frm = new Form1();
+            frm.ShowInTaskbar = false;
+            frm.ShowDialog();
+            */
         }
-
+        
         private void btn_min_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;

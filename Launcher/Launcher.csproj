@@ -84,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CloseWindowCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\HideSampleWindowCommand.cs" />
+    <Compile Include="Commands\ShowSampleWindowCommand.cs" />
     <Compile Include="NewsLoaderControl.xaml.cs">
       <DependentUpon>NewsLoaderControl.xaml</DependentUpon>
     </Compile>
@@ -153,6 +157,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
@@ -192,6 +197,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\982697c72bc7841a_ywu_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\context.BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Bulb.ico" />
+    <Resource Include="img\Computers.ico" />
+    <Resource Include="img\Error.ico" />
+    <Resource Include="img\Inactive.ico" />
+    <Resource Include="img\NetDrives.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Add.png" />
+    <Resource Include="img\Close.png" />
+    <Resource Include="img\Info.png" />
+    <Resource Include="img\Logo.png" />
+    <Resource Include="img\Preferences.png" />
+    <Resource Include="img\Remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
